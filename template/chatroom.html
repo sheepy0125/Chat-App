@@ -1,0 +1,46 @@
+<!-- Chatroom page -->
+
+<!-- Use base.html -->
+{% extends "base.html" %} 
+
+{% block title %}Chatroom{% endblock %}
+
+{% block body %}
+<div class = "content">
+    <h1>Chatroom</h1>
+    <label class = "center center_text">Message<input type = "text" id = "message_input"></label>
+    <button type = "button" id = "send_button" class = "button">Send message</button>
+
+    <div class = "chat_area overflow_scroll" id = "chat_area" style = "height: 400px;">
+        <h3>Messages</h3>
+        <ul id = "message_ul"></ul>
+    </iframe>
+
+    <!-- Socket IO JavaScript library -->
+    <script type="text/javascript" src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script>
+        // Setup
+        const socket = io("http://127.0.0.1:5000");
+        const username = "{{ username }}";
+        const message_html = document.getElementById("message_input");
+        const messages_html = document.getElementById("message_ul");
+        const chat_area_html = document.getElementById("chat_area")
+        document.getElementById("send_button").addEventListener("click", send_message)
+
+        // Connect
+        socket.on("connect", function() { socket.emit("user_connection", {"username": username} ); });
+
+        // Message sent from server
+        socket.on("message", function(message) { 
+            messages_html.innerHTML += `<li>${message}</li>`;
+            // Auto scroll chat area
+            chat_area_html.scrollTop = chat_area_html.scrollHeight;
+        });
+
+        // Send a message to the server
+        function send_message() { socket.emit("send_message", {"message": message_html.value}); }
+    </script>
+</div>
+{% endblock %}

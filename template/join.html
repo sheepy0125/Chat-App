@@ -1,0 +1,17 @@
+<!-- Join chatroom page -->
+
+<!-- Use base.html -->
+{% extends "base.html" %} 
+
+{% block title %}Joining chatroom{% endblock %}
+
+{% block body %}
+<div class = "content">
+    <h1>Chat App</h1>
+    <h1>Joining a chatroom</h1>
+    <form class = "chat_area" action = "/chatroom", method = "POST">
+        <label class = "center center_text">What should we call you?<br><input type = "text" name = "username_input"></label><br>
+        <input type = "submit" class = "button" value = "Join">
+    </form>
+</div>
+{% endblock %}

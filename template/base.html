@@ -1,0 +1,30 @@
+<!-- HTML for all pages -->
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset = "UTF8">
+        <meta name = "viewport", content = "width = device-width, initial-scale = 1.0">
+        <meta http-equiv = "X-UA-Compatible" content = "ie-edge">
+        <link rel = "stylesheet", href = "{{ url_for('static', filename='css/style.css') }}">
+
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <!-- Flashes -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class = "flashes">
+                    {% for message in messages %}
+                        <h3>{{ message }}</h3>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block body %}{% endblock %}
+    </body>
+
+    <!-- Footer -->
+    <footer class = "footer"><p>Copyright (&copy;) Sheepy 2021</p></footer>
+</html>
