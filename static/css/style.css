@@ -1,0 +1,94 @@
+/* CSS file for all websites */
+
+/* Body and global scope */
+body, html {
+    font-family: sans-serif;
+    margin: 0 auto;
+    background-color: wheat;
+}
+
+/* Text */
+h1, h2, h3, h4, h5, p, li, a {
+    text-align: center; 
+    padding: 5px;
+}
+
+.tiny_text {
+    font-size: small;
+    color: darkslategray;
+    width: 75%;
+    margin: 0 auto;
+}
+
+footer {
+    font-size: smaller;
+}
+
+/* Center */
+button, .center {
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.center_text {
+    text-align: center; 
+}
+
+/* Content */
+.content {
+    margin: 0 auto;
+    width: 800px;
+    background-color: pink;
+    border-radius: 25px;
+}
+
+#content {
+    width: 70%;
+}
+
+/* Buttons */
+.button {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    text-decoration: none;
+    background-color: lightslategray;
+    color: black;
+    border: 1px solid black; 
+    width: 30%;
+}
+
+.small_button {
+    padding: 1px;
+    width: 100%;
+}
+
+/* Chat area */
+.chat_area {
+    width: 90%;
+    border-radius: 15px;
+    background-color: rgb(255, 180, 192);
+    margin: 0 auto;
+}
+
+.overflow_scroll {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+input[type = text] {
+    width: 25%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+/* Flashes */
+.flashes {
+    margin: 0 auto;
+    border-radius: 15px;
+    width: 800px;
+    background-color: rgb(255, 180, 192);
+}
