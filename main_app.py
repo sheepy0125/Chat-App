@@ -7,7 +7,7 @@ import datetime
 class Counter:
     def __init__(self, initial_value:int = 0): self.count = initial_value
     def change(self, by:int = 1): self.count += by
-        
+
 # Setup
 main_app = flask.Flask(__name__, template_folder = "template")
 main_app.config["SECRET_KEY"] = "TOTALLY_SECURE"
@@ -95,4 +95,4 @@ def chatroom():
 
 # Run
 if __name__ == "__main__":
-    socket_io.run(main_app, debug = True, port = 5002)
+    socket_io.run(main_app)
